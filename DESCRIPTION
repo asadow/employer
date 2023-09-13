@@ -1,0 +1,33 @@
+Package: employer
+Title: R package for Human Resource Transactions
+Version: 0.0.1
+Authors@R: 
+    person("Adam", "Sadowski", , "asadowsk@uoguelph.ca", role = c("aut", "cre"))
+Description: Contains internal data, reports, and code outside of Shiny applications.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Depends: 
+    R (>= 2.10)
+LazyData: true
+Suggests: 
+    glue,
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+VignetteBuilder: knitr
+Imports: 
+    dplyr,
+    DT,
+    ggplot2,
+    janitor,
+    lubridate,
+    purrr,
+    tibble,
+    tidyr,
+    tidyselect,
+    timeDate
+URL: https://github.com/asadow/employer
+BugReports: https://github.com/asadow/employer/issues
