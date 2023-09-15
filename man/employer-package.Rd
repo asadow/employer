@@ -4,9 +4,17 @@
 \name{employer-package}
 \alias{employer}
 \alias{employer-package}
-\title{employer: R package for Human Resources at the University of Guelph}
+\title{employer: R package for Human Resource Transactions}
 \description{
 Contains internal data, reports, and code outside of Shiny applications.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/asadow/employer}
+  \item Report bugs at \url{https://github.com/asadow/employer/issues}
+}
+
 }
 \author{
 \strong{Maintainer}: Adam Sadowski \email{asadowsk@uoguelph.ca}
