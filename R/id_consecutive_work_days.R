@@ -1,8 +1,10 @@
 #' Create id column identifying sets of continuous working days
 #'
 #' @param .data A data frame with a `date` column of class `Date`.
-#' @param x An event variable of interest.
-#' @param work_days Numeric vector of working days of the week (1 is Sunday).
+#' @param x <[`tidy-select`][dplyr::dplyr_tidy_select]>
+#' An event variable of interest.
+#' @param work_days <[`data-masked`][dplyr::dplyr_data_masking]>
+#' Numeric vector of working days of the week (1 is Sunday).
 #' @param holidates A data frame with a `date` column for holiday dates.
 #' @return A data frame with a new `id` column of class `integer`.
 #' @export

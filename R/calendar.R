@@ -3,7 +3,8 @@
 #' @description
 #' `calendar()` plots a yearly calendar.
 #' @param .data A data frame.
-#' @param event A variable to calendar.
+#' @param event <[`data-masked`][dplyr::dplyr_data_masking]>
+#' A variable to calendar.
 #' @returns A ggplot.
 #'
 #' @export

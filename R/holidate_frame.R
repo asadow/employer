@@ -7,6 +7,7 @@
 #' @param holidates A data frame with a `date` column for holiday dates.
 #' @export
 holidate_frame <- function(date, holidates) {
-  tibble::tibble(date = seq(range(date)[1], range(date)[2], by = "day")) |>
+  seq_dates <- seq(range(date)[1], range(date)[2], by = "day")
+  tibble::tibble(date = seq_dates) |>
     dplyr::left_join(holidates, by = "date")
 }

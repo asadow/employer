@@ -3,8 +3,9 @@
 #' @description `formatted_dt()` creates an HTML widget as per the `DT` package.
 #'
 #' @param .data A data frame.
-#' @param pane_false Columns to not have search panes.
-#' @param visible_false Columns to be invisible in the table.
+#' @param pane_false Indexes representing columns to not have search panes.
+#' @param visible_false Indexes representing columns to be invisible 
+#' in the table.
 #' @param ... More arguments to `DT::datatable(options = ...)`.
 #' @export
 formatted_dt <- function(.data, pane_false, visible_false, ...) {

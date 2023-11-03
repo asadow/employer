@@ -12,7 +12,8 @@ test_that("id_consecutive_work_days() keeps work_days = 2:6", {
   expected_df <- df |> dplyr::mutate(id = c(1, 1, 1, 2, 2))
 
   expect_equal(
-    df |> id_consecutive_work_days(tr_code, work_days = 2:6, employer::holidates),
+    df |> 
+      id_consecutive_work_days(tr_code, work_days = 2:6, employer::holidates),
     expected_df
   )
 })
@@ -29,7 +30,8 @@ test_that("id_consecutive_work_days() keeps non-holidays if work_days = 1:7", {
   expected_df <- df |> dplyr::mutate(id = c(1, 2, 2, 3))
 
   expect_equal(
-    df |> id_consecutive_work_days(tr_code, work_days = 1:7, employer::holidates),
+    df |> 
+      id_consecutive_work_days(tr_code, work_days = 1:7, employer::holidates),
     expected_df
   )
 })

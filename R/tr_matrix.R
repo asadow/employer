@@ -4,7 +4,8 @@
 #' `tr_matrix()` creates a matrix summary out of summarized transactions.
 #'
 #' @param .data A data frame.
-#' @param by A variable to summarise by in addition to `days`.
+#' @param by <[`tidy-select`][dplyr::dplyr_tidy_select]>
+#' A variable to summarise by in addition to `days`.
 #' @returns A tibble.
 #'
 #' @export

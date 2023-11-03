@@ -5,8 +5,9 @@
 #' list of yearly calendars of `y`.
 #'
 #' @param .data A data frame.
-#' @param nest_by A grouping variable other than year.
-#' @param event A variable to calendar.
+#' @param nest_by <[`tidy-select`][dplyr::dplyr_tidy_select]> 
+#' A grouping variable other than year.
+#' @inheritParams calendar
 #' @returns A nested tibble.
 #'
 #' @export
