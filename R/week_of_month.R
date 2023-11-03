@@ -7,7 +7,6 @@
 #' @returns A numeric.
 #'
 #' @export
-
 week_of_month <- function(x) {
   month_floor <- lubridate::floor_date(x, "months")
   wday_of_month_floor <- lubridate::wday(month_floor)

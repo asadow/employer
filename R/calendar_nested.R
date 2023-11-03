@@ -10,10 +10,9 @@
 #' @returns A nested tibble.
 #'
 #' @export
-
 calendar_nested <- function(.data, nest_by, event) {
   year <- data <- NULL
-  
+
   .data |>
     tidyr::nest(.by = c({{ nest_by }}, year)) |>
     dplyr::mutate(
@@ -26,6 +25,6 @@ calendar_nested <- function(.data, nest_by, event) {
         data,
         \(x) calendar(x, {{ event }}),
         .progress = " Plotting calendars..."
-        )
+      )
     )
 }

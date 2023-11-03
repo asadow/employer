@@ -7,9 +7,7 @@
 #' @param visible_false Columns to be invisible in the table.
 #' @param ... More arguments to `DT::datatable(options = ...)`.
 #' @export
-
 formatted_dt <- function(.data, pane_false, visible_false, ...) {
-
   DT::datatable(
     .data,
     rownames = FALSE,

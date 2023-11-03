@@ -9,15 +9,15 @@
 #' @export
 calendar <- function(.data, event) {
   wday <- week <- year <- day <- NULL
-  
+
   .data |>
     ggplot2::ggplot(ggplot2::aes(wday, week)) +
     ggplot2::geom_tile(
       alpha = 0.8,
       ggplot2::aes(fill = {{ event }}, group = year),
       color = "black"
-      ) +
-    ggplot2::facet_wrap(~ month, scales = "free_x", ncol = 3) +
+    ) +
+    ggplot2::facet_wrap(~month, scales = "free_x", ncol = 3) +
     ggplot2::geom_text(ggplot2::aes(label = day)) +
     ggplot2::scale_y_reverse(breaks = NULL) +
     ggplot2::labs(fill = "", x = "", y = "") +
@@ -32,8 +32,8 @@ calendar <- function(.data, event) {
         DOCK6 = "#287D8EFF",
         SICK = "#FDE725FF",
         NOPAY = "beige"
-        )
-      ) +
+      )
+    ) +
     ggplot2::theme_bw() +
     ggplot2::theme(
       strip.text = ggplot2::element_text(size = 14),

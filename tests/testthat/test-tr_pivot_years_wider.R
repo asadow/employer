@@ -1,5 +1,4 @@
 test_that("tr_pivot_years_wider() works by ignoring runs", {
-
   df <- tibble::tibble(
     employee_no = c("1010", "1005", "1005", "1005", "1010", "1010"),
     tr_code = c("SICK", "SICK", "VAC", "SICK", "SICK", "SICK"),
@@ -17,5 +16,4 @@ test_that("tr_pivot_years_wider() works by ignoring runs", {
   )
 
   expect_equal(df |> tr_pivot_years_wider(), expected_df)
-
 })

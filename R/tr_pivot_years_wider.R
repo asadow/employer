@@ -3,7 +3,6 @@
 #' @param .data A data frame.
 #'
 #' @export
-
 tr_pivot_years_wider <- function(.data) {
   employee_no <- tr_code <- year <- days <- NULL
 

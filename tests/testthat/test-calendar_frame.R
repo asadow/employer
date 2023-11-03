@@ -1,6 +1,4 @@
-
 test_that("calendar_frame() creates a year's worth of dates in a data frame", {
-
   df <- tibble::tibble(
     employee_no = rep("1005", 3L),
     tr_code = rep("SICK", 3L),
@@ -18,6 +16,6 @@ test_that("calendar_frame() creates a year's worth of dates in a data frame", {
       as.Date("2023-01-01"),
       as.Date("2023-12-31"),
       by = "day"
-      )
     )
+  )
 })

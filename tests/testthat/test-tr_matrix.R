@@ -15,5 +15,4 @@ test_that("tr_matrix() rounds and summarises", {
   df <- tr_matrix(df, month) |> tibble::as_tibble()
 
   expect_equal(df, expected_df, ignore_attr = TRUE)
-
 })

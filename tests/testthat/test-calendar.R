@@ -1,5 +1,4 @@
 test_that("calendar() creates ggplot with certain characteristics", {
-
   df <- tibble::tibble(
     employee_no = rep("1005", 3L),
     tr_code = rep("SICK", 3L),

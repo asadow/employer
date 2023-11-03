@@ -8,10 +8,9 @@
 #' @returns A tibble.
 #'
 #' @export
-
 tr_matrix <- function(.data, by) {
-  days <- n <- NULL 
-  
+  days <- n <- NULL
+
   .data |>
     dplyr::summarise(n = dplyr::n(), .by = c(days, {{ by }})) |>
     tidyr::pivot_wider(names_from = {{ by }}, values_from = n) |>
@@ -19,12 +18,12 @@ tr_matrix <- function(.data, by) {
     ## Round and summ. so runs with 1.25 and 1.3 days get lumped into 1 day
     dplyr::mutate(days = round(days, 0)) |>
     dplyr::summarise(
-      .by = days, 
+      .by = days,
       dplyr::across(dplyr::everything(), \(x) sum(x, na.rm = TRUE))
-      ) |>
+    ) |>
     dplyr::mutate(
       Instances = rowSums(
-        dplyr::pick(dplyr::where(is.numeric), - days),
+        dplyr::pick(dplyr::where(is.numeric), -days),
         na.rm = TRUE
       )
     ) |>

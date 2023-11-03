@@ -7,7 +7,6 @@
 #' @returns A factor vector.
 #'
 #' @export
-
 year_half <- function(date) {
   dplyr::case_when(
     lubridate::month(date) <= 6 ~ "Jan:Jun",

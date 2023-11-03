@@ -3,7 +3,7 @@ test_that("get tibble with date input", {
   expect_s3_class(
     holidate_frame(c(d, d + 2), employer::holidates),
     class(tibble::tibble())
-    )
+  )
 })
 
 test_that("inputs are dates", {
@@ -11,5 +11,5 @@ test_that("inputs are dates", {
   expect_error(
     holidate_frame(c(d, d + 2), employer::holidates),
     "non-numeric argument"
-    )
+  )
 })

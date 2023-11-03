@@ -21,7 +21,7 @@ hdates_rough <- expand_grid(hday = hdays_uog, year = years) |>
     ),
     wday = wday(date, label = TRUE)
   ) |>
-  select(- year)
+  select(-year)
 
 # UofG December break: 23 to NYD ------------------------------------------
 
@@ -44,7 +44,7 @@ holidates <- hdates_rough |>
       .default = date
     )
   ) |>
-  select(- wday) |>
+  select(-wday) |>
   arrange(date)
 
 usethis::use_data(holidates, overwrite = TRUE)

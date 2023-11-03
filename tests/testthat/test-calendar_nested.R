@@ -1,5 +1,4 @@
 test_that("calendar_nested() creates a nested plot column", {
-
   df <- tibble::tibble(
     employee_no = rep("1005", 3L),
     tr_code = rep("SICK", 3L),
@@ -12,5 +11,4 @@ test_that("calendar_nested() creates a nested plot column", {
 
   expect_named(nested_df, c("employee_no", "year", "data", "calendar"))
   expect_s3_class(nested_df$calendar[[1]], c("ggplot"))
-
 })

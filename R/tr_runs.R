@@ -10,7 +10,6 @@
 #' @returns A tibble.
 #'
 #' @export
-
 tr_runs <- function(.data, holidates) {
   tr_code <- tr_no <- employee_no <- data <- id <- NULL
 
@@ -22,13 +21,13 @@ tr_runs <- function(.data, holidates) {
     tidyr::nest(
       data = c(year_half, tr_code, date, tr_no),
       .by = c(employee_no, year_half, tr_code)
-      ) |>
+    ) |>
     dplyr::mutate(
       data = purrr::map(
         data,
         \(x) x |>
           id_consecutive_work_days(tr_code, work_days = 2:6, holidates) |>
-          dplyr::select(- c(year_half, tr_code)),
+          dplyr::select(-c(year_half, tr_code)),
         .progress = " Adding transaction runs"
       )
     ) |>

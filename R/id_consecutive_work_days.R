@@ -6,7 +6,6 @@
 #' @param holidates A data frame with a `date` column for holiday dates.
 #' @return A data frame with a new `id` column of class `integer`.
 #' @export
-
 id_consecutive_work_days <- function(.data, x, work_days = 2:6, holidates) {
   hday <- NULL
 

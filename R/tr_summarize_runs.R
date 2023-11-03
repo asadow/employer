@@ -7,7 +7,6 @@
 #' @returns A tibble.
 #'
 #' @export
-
 tr_summarize_runs <- function(.data) {
   tr_code <- hours_day <- employee_no <- runs <- run <- days <-
     summ_by_run <- dept <- data <- hours <- month <- NULL
@@ -47,7 +46,7 @@ tr_summarize_runs <- function(.data) {
         .progress = " Summarizing runs"
       )
     ) |>
-    dplyr::select(! data) |>
+    dplyr::select(!data) |>
     dplyr::mutate(
       summ_by_month = purrr::map(
         summ_by_run, \(x) x |> employer::tr_matrix(month),
@@ -58,5 +57,4 @@ tr_summarize_runs <- function(.data) {
         .progress = " Summarizing department runs"
       )
     )
-
 }

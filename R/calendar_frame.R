@@ -8,7 +8,6 @@
 #' @returns A nested tibble.
 #'
 #' @export
-
 calendar_frame <- function(.date_range) {
   ## Consider tidyr::complete() instead!
 
