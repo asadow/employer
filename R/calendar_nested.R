@@ -21,11 +21,16 @@ calendar_nested <- function(.data, nest_by, event) {
         data,
         \(x) calendar_frame(range(x$date)) |>
           dplyr::left_join(x, by = "date", suffix = c("", "_ignore"))
-      ),
+      )
+    ) |> 
+    dplyr::mutate(
       calendar = purrr::map(
         data,
-        \(x) calendar(x, {{ event }}),
+        \(x) calendar(x, {{ event }}) |>
+          ggplot2::ggplotGrob() |> 
+          ggpubr::as_ggplot(),
         .progress = " Plotting calendars..."
-      )
+      ),
+      .keep = "unused"
     )
 }
