@@ -11,7 +11,7 @@
 #'
 #' @export
 tr_runs <- function(.data, holidates) {
-  code <- tr_no <- employee_no <- data <- id <- NULL
+  code <- trans_no <- employee_no <- data <- id <- NULL
 
   .data <- .data |>
     dplyr::mutate(year_half = year_half(date))
@@ -19,7 +19,7 @@ tr_runs <- function(.data, holidates) {
   ## NB runs will not have days of the week over than the work_days
   runs <- .data |>
     tidyr::nest(
-      data = c(year_half, code, date, tr_no),
+      data = c(year_half, code, date, trans_no),
       .by = c(employee_no, year_half, code)
     ) |>
     dplyr::mutate(
@@ -38,6 +38,6 @@ tr_runs <- function(.data, holidates) {
   .data |>
     dplyr::left_join(
       runs,
-      by = dplyr::join_by(employee_no, year_half, code, date, tr_no)
+      by = dplyr::join_by(employee_no, year_half, code, date, trans_no)
     )
 }
