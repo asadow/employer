@@ -4,11 +4,11 @@
 #'
 #' @export
 tr_pivot_years_wider <- function(.data) {
-  employee_no <- tr_code <- year <- days <- NULL
+  employee_no <- code <- year <- days <- NULL
 
   .data |>
     tidyr::pivot_wider(
-      id_cols = c(employee_no, tr_code),
+      id_cols = c(employee_no, code),
       names_from = year,
       values_from = days,
       names_sort = TRUE

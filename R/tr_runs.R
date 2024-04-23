@@ -1,7 +1,7 @@
 #' Nest employees, add transaction runs, and unnest
 #'
 #' @description
-#' `tr_runs()` nests by employee, year-half, and tr_code to calculate
+#' `tr_runs()` nests by employee, year-half, and code to calculate
 #' transaction runs (id's for transactions that continue across
 #' working days).
 #'
@@ -11,7 +11,7 @@
 #'
 #' @export
 tr_runs <- function(.data, holidates) {
-  tr_code <- tr_no <- employee_no <- data <- id <- NULL
+  code <- tr_no <- employee_no <- data <- id <- NULL
 
   .data <- .data |>
     dplyr::mutate(year_half = year_half(date))
@@ -19,15 +19,15 @@ tr_runs <- function(.data, holidates) {
   ## NB runs will not have days of the week over than the work_days
   runs <- .data |>
     tidyr::nest(
-      data = c(year_half, tr_code, date, tr_no),
-      .by = c(employee_no, year_half, tr_code)
+      data = c(year_half, code, date, tr_no),
+      .by = c(employee_no, year_half, code)
     ) |>
     dplyr::mutate(
       data = purrr::map(
         data,
         \(x) x |>
-          id_consecutive_work_days(tr_code, work_days = 2:6, holidates) |>
-          dplyr::select(-c(year_half, tr_code)),
+          id_consecutive_work_days(code, work_days = 2:6, holidates) |>
+          dplyr::select(-c(year_half, code)),
         .progress = " Adding transaction runs"
       )
     ) |>
@@ -38,6 +38,6 @@ tr_runs <- function(.data, holidates) {
   .data |>
     dplyr::left_join(
       runs,
-      by = dplyr::join_by(employee_no, year_half, tr_code, date, tr_no)
+      by = dplyr::join_by(employee_no, year_half, code, date, tr_no)
     )
 }

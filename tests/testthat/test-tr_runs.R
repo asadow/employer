@@ -5,7 +5,7 @@ test_that("tr_runs() does not duplicate repeat dates", {
     employee_no = c("1234"),
     date = dates,
     tr_no = 1:3,
-    tr_code = rep("SICK", 3)
+    code = rep("SICK", 3)
   )
 
   expected_df <- df |>

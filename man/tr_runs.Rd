@@ -15,7 +15,7 @@ tr_runs(.data, holidates)
 A tibble.
 }
 \description{
-\code{tr_runs()} nests by employee, year-half, and tr_code to calculate
+\code{tr_runs()} nests by employee, year-half, and code to calculate
 transaction runs (id's for transactions that continue across
 working days).
 }

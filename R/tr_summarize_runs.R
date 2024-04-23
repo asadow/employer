@@ -8,11 +8,11 @@
 #'
 #' @export
 tr_summarize_runs <- function(.data) {
-  tr_code <- hours_day <- employee_no <- runs <- run <- days <-
-    summ_by_run <- dept <- data <- hours <- month <- NULL
+  code <- hours_day <- employee_no <- runs <- run <- days <-
+    summ_by_run <- dept <- data <- tot_hrs <- month <- NULL
 
   .data |>
-    tidyr::nest(.by = tr_code) |>
+    tidyr::nest(.by = code) |>
     dplyr::mutate(
       summ_over_run = purrr::map(
         data,
@@ -25,7 +25,7 @@ tr_summarize_runs <- function(.data) {
           ) |>
           dplyr::summarize(
             runs = max(run),
-            days = sum(hours / hours_day),
+            days = sum(tot_hrs / hours_day),
             .by = c(employee_no, year_half)
           ) |>
           dplyr::summarize(
@@ -38,7 +38,7 @@ tr_summarize_runs <- function(.data) {
         data,
         \(x) x |>
           dplyr::summarise(
-            days = sum(hours / hours_day),
+            days = sum(tot_hrs / hours_day),
             month = lubridate::month(min(date), label = TRUE, abbr = TRUE),
             dept = unique(dept),
             .by = c(employee_no, run, year_half)
