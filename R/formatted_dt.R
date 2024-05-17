@@ -20,7 +20,7 @@ formatted_dt <- function(.data, pane_false, visible_false, ...) {
       columnDefs = list(
         list(searchPanes = list(show = FALSE), targets = pane_false - 1),
         list(visible = FALSE, targets = visible_false - 1)
-      ),
+      )
     ),
     selection = "none",
     ...
